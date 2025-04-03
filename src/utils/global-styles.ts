@@ -32,6 +32,12 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
+    padding: 0 1rem;
     font-family: 'Outfit', 'Arial', sans-serif;
+  }
+
+  ul,
+  ol {
+    list-style: none;
   }
 `;
