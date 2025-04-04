@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { rem } from "polished";
 import { IInput } from "./types";
 import { inputStyles, labelStyles } from "../../styles/sharedStyles";
 
