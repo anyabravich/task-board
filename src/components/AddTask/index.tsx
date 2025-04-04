@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { rem } from "polished";
 import Icons from "../Icons";
+import { IAddTask } from "../../types";
 
-const AddTask = () => {
+const AddTask = ({ openPopup, setOpenPopup }: IAddTask) => {
   return (
-    <AddTaskContainer>
+    <AddTaskContainer onClick={() => setOpenPopup(!openPopup)}>
       <AddTaskIcon>
         <Icons.plus />
       </AddTaskIcon>

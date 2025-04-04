@@ -2,8 +2,12 @@ import Task from "../Task";
 import styled from "styled-components";
 import { rem } from "polished";
 import AddTask from "../AddTask";
+import PopupTask from "../PopupTask";
+import { useState } from "react";
 
 const Board = () => {
+  const [openPopup, setOpenPopup] = useState(true);
+
   return (
     <BoardContainer>
       <BoardTitle>My Task Board</BoardTitle>
@@ -18,7 +22,8 @@ const Board = () => {
           description="Work on a devChallenges.io learn TypeScript."
         />
       </BoardList>
-      <AddTask />
+      <AddTask openPopup={openPopup} setOpenPopup={setOpenPopup} />
+      {openPopup && <PopupTask />}
     </BoardContainer>
   );
 };
