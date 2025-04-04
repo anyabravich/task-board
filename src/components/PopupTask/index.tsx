@@ -3,6 +3,7 @@ import { rem, rgba } from "polished";
 import Input from "../Input";
 import Textarea from "../Textarea";
 import IconChoice from "../IconChoice";
+import StatusChoice from "../StatusChoice";
 
 const PopupTask = () => {
   return (
@@ -13,6 +14,7 @@ const PopupTask = () => {
           <Input label="Task name" placeholder="Enter name" />
           <Textarea label="Description" placeholder="Enter description" />
           <IconChoice />
+          <StatusChoice />
         </PopupTaskFields>
       </PopupTaskContainer>
     </PopupTaskOverlay>
