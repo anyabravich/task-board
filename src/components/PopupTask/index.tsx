@@ -4,24 +4,34 @@ import Input from "../Input";
 import Textarea from "../Textarea";
 import IconChoice from "../IconChoice";
 import StatusChoice from "../StatusChoice";
+import Button from "../Button";
+import Icons from "../Icons";
 
 const PopupTask = () => {
   return (
-    <PopupTaskOverlay>
-      <PopupTaskContainer>
-        <PopupTaskTitle>Task details</PopupTaskTitle>
-        <PopupTaskFields>
+    <Overlay>
+      <Container>
+        <Title>Task details</Title>
+        <Fields>
           <Input label="Task name" placeholder="Enter name" />
           <Textarea label="Description" placeholder="Enter description" />
           <IconChoice />
           <StatusChoice />
-        </PopupTaskFields>
-      </PopupTaskContainer>
-    </PopupTaskOverlay>
+          <Buttons>
+            <Button variant="secondary">
+              Delete <Icons.trash />
+            </Button>
+            <Button variant="primary">
+              Save <Icons.check />
+            </Button>
+          </Buttons>
+        </Fields>
+      </Container>
+    </Overlay>
   );
 };
 
-const PopupTaskOverlay = styled.div`
+const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -33,26 +43,36 @@ const PopupTaskOverlay = styled.div`
   background: ${rgba("#000000", 0.3)};
 `;
 
-const PopupTaskContainer = styled.div`
+const Container = styled.div`
   background: ${({ theme }) => theme.colors.white};
   width: 100%;
   height: 100%;
   padding: ${rem(20)};
   max-width: ${rem(700)};
   border-radius: ${rem(16)};
+  overflow-y: auto;
 `;
 
-const PopupTaskTitle = styled.p`
+const Title = styled.p`
   margin-bottom: ${rem(20)};
   font-size: ${rem(24)};
   font-weight: 500;
   line-height: 1.5rem;
 `;
 
-const PopupTaskFields = styled.form`
+const Fields = styled.form`
   display: flex;
   gap: ${rem(16)};
   flex-direction: column;
+  height: calc(100% - ${rem(44)});
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  gap: ${rem(16)};
+  margin-top: auto;
+  justify-content: flex-end;
+  padding-bottom: ${rem(20)};
 `;
 
 export default PopupTask;
