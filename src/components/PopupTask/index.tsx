@@ -19,10 +19,12 @@ const PopupTask = () => {
           <StatusChoice />
           <Buttons>
             <Button variant="secondary">
-              Delete <Icons.trash />
+              <span>Delete</span>
+              <Icons.trash />
             </Button>
             <Button variant="primary">
-              Save <Icons.check />
+              <span>Save</span>
+              <Icons.check />
             </Button>
           </Buttons>
         </Fields>
@@ -47,24 +49,24 @@ const Container = styled.div`
   background: ${({ theme }) => theme.colors.white};
   width: 100%;
   height: 100%;
-  padding: ${rem(20)};
-  max-width: ${rem(700)};
-  border-radius: ${rem(16)};
+  padding: ${rem(18)} ${rem(22)};
+  max-width: ${rem(628)};
+  border-radius: ${rem(10)};
   overflow-y: auto;
 `;
 
 const Title = styled.p`
-  margin-bottom: ${rem(20)};
-  font-size: ${rem(24)};
   font-weight: 500;
   line-height: 1.5rem;
+  font-size: ${rem(20)};
+  margin-bottom: ${rem(22)};
 `;
 
 const Fields = styled.form`
   display: flex;
-  gap: ${rem(16)};
+  gap: ${rem(18)};
   flex-direction: column;
-  height: calc(100% - ${rem(44)});
+  min-height: calc(100% - ${rem(50)});
 `;
 
 const Buttons = styled.div`
@@ -72,7 +74,6 @@ const Buttons = styled.div`
   gap: ${rem(16)};
   margin-top: auto;
   justify-content: flex-end;
-  padding-bottom: ${rem(20)};
 `;
 
 export default PopupTask;

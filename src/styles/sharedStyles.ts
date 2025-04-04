@@ -4,7 +4,7 @@ import { rem } from "polished";
 export const inputStyles = css`
   outline: none;
   border: ${rem(2)} solid ${({ theme }) => theme.colors.gray};
-  height: ${rem(50)};
+  height: ${rem(44)};
   border-radius: ${rem(10)};
   padding: ${rem(16)};
   font-size: ${rem(16)};
@@ -22,6 +22,6 @@ export const inputStyles = css`
 
 export const labelStyles = css`
   font-size: ${rem(14)};
-  margin-bottom: ${rem(6)};
+  margin-bottom: ${rem(4)};
   color: ${({ theme }) => theme.colors.darkGray};
 `;

@@ -14,12 +14,12 @@ const Button = ({ children, variant }: IButton) => {
 const Container = styled.button<{ $variant?: "primary" | "secondary" }>`
   background: none;
   border: none;
-  font-size: ${rem(16)};
+  font-size: ${rem(14)};
   font-weight: 500;
-  line-height: 1.25rem;
+  line-height: 1rem;
   color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
-  padding: ${rem(10)} ${rem(16)};
+  padding: ${rem(6)} ${rem(23)};
   border-radius: 100vmax;
   background: ${({ $variant, theme }) => {
     if ($variant === "primary") {
@@ -29,7 +29,7 @@ const Container = styled.button<{ $variant?: "primary" | "secondary" }>`
   }};
   display: flex;
   align-items: center;
-  gap: ${rem(8)};
+  gap: ${rem(6)};
 
   svg {
     --size: ${rem(24)};
@@ -38,6 +38,11 @@ const Container = styled.button<{ $variant?: "primary" | "secondary" }>`
     height: var(--size);
 
     flex-shrink: 0;
+  }
+
+  span {
+    position: relative;
+    top: ${rem(1)};
   }
 `;
 

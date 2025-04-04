@@ -26,7 +26,7 @@ const Status = ({ status, text, active, onClick }: IStatus) => {
 const StatusContainer = styled.div`
   position: relative;
   display: flex;
-  gap: ${rem(16)};
+  gap: ${rem(10)};
   align-items: center;
   border: ${rem(2)} solid ${({ theme }) => theme.colors.gray};
   border-radius: ${rem(16)};
@@ -42,7 +42,7 @@ const StatusIconContainer = styled.div<{ $status: string }>`
 
   background: ${({ $status, theme }) =>
     getStatusBackground($status || "", theme)};
-  border-radius: ${rem(8)};
+  border-radius: ${rem(14)};
 
   display: flex;
   align-items: center;

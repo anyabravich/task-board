@@ -31,7 +31,7 @@ const IconChoiceTitle = styled.p`
 
 const IconChoiceIcons = styled.div`
   display: flex;
-  gap: ${rem(16)};
+  gap: ${rem(12)};
 `;
 
 export default IconChoice;

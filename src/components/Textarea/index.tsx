@@ -22,8 +22,9 @@ const TextareaLabel = styled(InputLabel)``;
 
 const TextareaField = styled.textarea`
   ${inputStyles}
-  height: ${rem(120)};
+  height: ${rem(170)};
   resize: none;
+  padding: ${rem(8)} ${rem(16)};
 `;
 
 export default Textarea;

@@ -19,7 +19,7 @@ const EmojiIconContainer = styled.div<{ $active: boolean }>`
 
   background: ${({ $active }) =>
     $active ? theme.colors.yellow : theme.colors.gray};
-  border-radius: ${rem(8)};
+  border-radius: ${rem(14)};
 
   display: flex;
   align-items: center;
