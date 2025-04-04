@@ -1,4 +1,3 @@
-export interface IAddTask {
-  openPopup: boolean;
+export interface IPopupTask {
   setOpenPopup: React.Dispatch<React.SetStateAction<boolean>>;
 }

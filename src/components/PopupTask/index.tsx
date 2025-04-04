@@ -6,11 +6,12 @@ import IconChoice from "../IconChoice";
 import StatusChoice from "../StatusChoice";
 import Button from "../Button";
 import Icons from "../Icons";
+import { IPopupTask } from "./types";
 
-const PopupTask = () => {
+const PopupTask = ({ setOpenPopup }: IPopupTask) => {
   return (
-    <Overlay>
-      <Container>
+    <Overlay onClick={() => setOpenPopup(false)}>
+      <Container onClick={(e) => e.stopPropagation()}>
         <Title>Task details</Title>
         <Fields>
           <Input label="Task name" placeholder="Enter name" />

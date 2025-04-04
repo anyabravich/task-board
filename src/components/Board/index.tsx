@@ -23,7 +23,7 @@ const Board = () => {
         />
       </BoardList>
       <AddTask openPopup={openPopup} setOpenPopup={setOpenPopup} />
-      {openPopup && <PopupTask />}
+      {openPopup && <PopupTask setOpenPopup={setOpenPopup} />}
     </BoardContainer>
   );
 };

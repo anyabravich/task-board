@@ -35,7 +35,7 @@ const StatusChoiceTitle = styled.p`
 const StatusChoiceGrid = styled.div`
   display: grid;
   gap: ${rem(6)} ${rem(12)};
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(${rem(224)}, 1fr));
 `;
 
 export default StatusChoice;
