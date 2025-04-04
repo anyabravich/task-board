@@ -1,11 +1,17 @@
 import styled from "styled-components";
 import { rem, rgba } from "polished";
+import Input from "../Input";
+import Textarea from "../Textarea";
 
 const PopupTask = () => {
   return (
     <PopupTaskOverlay>
       <PopupTaskContainer>
         <PopupTaskTitle>Task details</PopupTaskTitle>
+        <PopupTaskFields>
+          <Input label="Task name" placeholder="Enter name" />
+          <Textarea label="Description" placeholder="Enter description" />
+        </PopupTaskFields>
       </PopupTaskContainer>
     </PopupTaskOverlay>
   );
@@ -32,6 +38,17 @@ const PopupTaskContainer = styled.div`
   border-radius: ${rem(16)};
 `;
 
-const PopupTaskTitle = styled.p``;
+const PopupTaskTitle = styled.p`
+  margin-bottom: ${rem(20)};
+  font-size: ${rem(24)};
+  font-weight: 500;
+  line-height: 1.5rem;
+`;
+
+const PopupTaskFields = styled.div`
+  display: flex;
+  gap: ${rem(16)};
+  flex-direction: column;
+`;
 
 export default PopupTask;
