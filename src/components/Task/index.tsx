@@ -9,7 +9,7 @@ const Task = ({ icon, title, status, description }: ITask) => {
   const Icon = getIconStatus(status || "");
 
   return (
-    <TaskContainer status={status}>
+    <TaskContainer $status={status}>
       <TaskInformation>
         <TaskImageContainer>{icon}</TaskImageContainer>
         <div>
@@ -18,7 +18,7 @@ const Task = ({ icon, title, status, description }: ITask) => {
         </div>
       </TaskInformation>
       {status && (
-        <TaskStatus status={status}>
+        <TaskStatus $status={status}>
           <Icon />
         </TaskStatus>
       )}
@@ -26,9 +26,10 @@ const Task = ({ icon, title, status, description }: ITask) => {
   );
 };
 
-const TaskContainer = styled.li<{ status?: string }>`
+const TaskContainer = styled.li<{ $status?: string }>`
   display: flex;
-  background: ${({ status, theme }) => getBackgroundColor(status || "", theme)};
+  background: ${({ $status, theme }) =>
+    getBackgroundColor($status || "", theme)};
   justify-content: space-between;
   padding: ${rem(16)};
   border-radius: ${rem(16)};
@@ -67,14 +68,14 @@ const TaskDescription = styled.p`
   margin-top: ${rem(8)};
 `;
 
-const TaskStatus = styled.div<{ status?: string }>`
+const TaskStatus = styled.div<{ $status?: string }>`
   --size: ${rem(44)};
 
   width: var(--size);
   height: var(--size);
 
-  background: ${({ status, theme }) =>
-    getStatusBackground(status || "", theme)};
+  background: ${({ $status, theme }) =>
+    getStatusBackground($status || "", theme)};
   border-radius: ${rem(8)};
 
   display: flex;

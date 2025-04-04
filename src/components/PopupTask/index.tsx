@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { rem, rgba } from "polished";
 import Input from "../Input";
 import Textarea from "../Textarea";
+import IconChoice from "../IconChoice";
 
 const PopupTask = () => {
   return (
@@ -11,6 +12,7 @@ const PopupTask = () => {
         <PopupTaskFields>
           <Input label="Task name" placeholder="Enter name" />
           <Textarea label="Description" placeholder="Enter description" />
+          <IconChoice />
         </PopupTaskFields>
       </PopupTaskContainer>
     </PopupTaskOverlay>
@@ -45,7 +47,7 @@ const PopupTaskTitle = styled.p`
   line-height: 1.5rem;
 `;
 
-const PopupTaskFields = styled.div`
+const PopupTaskFields = styled.form`
   display: flex;
   gap: ${rem(16)};
   flex-direction: column;

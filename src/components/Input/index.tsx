@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { rem } from "polished";
 import { IInput } from "./types";
-import { inputStyles } from "../../styles/sharedStyles";
+import { inputStyles, labelStyles } from "../../styles/sharedStyles";
 
 const Input = ({ label, type = "text", placeholder }: IInput) => {
   return (
@@ -18,9 +18,7 @@ const InputContainer = styled.div`
 `;
 
 export const InputLabel = styled.label`
-  font-size: ${rem(14)};
-  margin-bottom: ${rem(6)};
-  color: ${({ theme }) => theme.colors.darkGray};
+  ${labelStyles}
 `;
 
 const InputField = styled.input`

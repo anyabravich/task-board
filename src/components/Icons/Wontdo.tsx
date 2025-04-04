@@ -4,19 +4,19 @@ const Wontdo = () => {
       <path
         d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z"
         fill="#F8FAFC"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         d="M7.5 7.5L12.5 12.5"
         stroke="#F8FAFC"
-        stroke-width="1.2"
-        stroke-linecap="round"
+        strokeWidth="1.2"
+        strokeLinecap="round"
       />
       <path
         d="M12.5 7.5L7.5 12.5"
         stroke="#F8FAFC"
-        stroke-width="1.2"
-        stroke-linecap="round"
+        strokeWidth="1.2"
+        strokeLinecap="round"
       />
     </svg>
   );

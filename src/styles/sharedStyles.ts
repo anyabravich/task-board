@@ -19,3 +19,9 @@ export const inputStyles = css`
     color: ${({ theme }) => theme.colors.darkGray};
   }
 `;
+
+export const labelStyles = css`
+  font-size: ${rem(14)};
+  margin-bottom: ${rem(6)};
+  color: ${({ theme }) => theme.colors.darkGray};
+`;
