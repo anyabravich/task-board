@@ -7,30 +7,35 @@ import StatusChoice from "../StatusChoice";
 import Button from "../Button";
 import Icons from "../Icons";
 import { IPopupTask } from "./types";
+import { RemoveScroll } from "react-remove-scroll";
 
-const PopupTask = ({ setOpenPopup }: IPopupTask) => {
+const PopupTask = ({ openPopup, setOpenPopup }: IPopupTask) => {
+  if (!openPopup) return null;
+
   return (
-    <Overlay onClick={() => setOpenPopup(false)}>
-      <Container onClick={(e) => e.stopPropagation()}>
-        <Title>Task details</Title>
-        <Fields>
-          <Input label="Task name" placeholder="Enter name" />
-          <Textarea label="Description" placeholder="Enter description" />
-          <IconChoice />
-          <StatusChoice />
-          <Buttons>
-            <Button variant="secondary">
-              <span>Delete</span>
-              <Icons.trash />
-            </Button>
-            <Button variant="primary">
-              <span>Save</span>
-              <Icons.check />
-            </Button>
-          </Buttons>
-        </Fields>
-      </Container>
-    </Overlay>
+    <RemoveScroll>
+      <Overlay onClick={() => setOpenPopup(false)}>
+        <Container onClick={(e) => e.stopPropagation()}>
+          <Title>Task details</Title>
+          <Fields>
+            <Input label="Task name" placeholder="Enter name" />
+            <Textarea label="Description" placeholder="Enter description" />
+            <IconChoice />
+            <StatusChoice />
+            <Buttons>
+              <Button variant="secondary">
+                <span>Delete</span>
+                <Icons.trash />
+              </Button>
+              <Button variant="primary">
+                <span>Save</span>
+                <Icons.check />
+              </Button>
+            </Buttons>
+          </Fields>
+        </Container>
+      </Overlay>
+    </RemoveScroll>
   );
 };
 
