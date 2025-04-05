@@ -3,9 +3,9 @@ import { rem } from "polished";
 
 import { IButton } from "./types";
 
-const Button = ({ children, variant }: IButton) => {
+const Button = ({ children, variant, type = "button" }: IButton) => {
   return (
-    <Container type="button" $variant={variant}>
+    <Container type={type} $variant={variant}>
       {children}
     </Container>
   );

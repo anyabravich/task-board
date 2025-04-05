@@ -16,21 +16,21 @@ const PopupTask = ({ openPopup, setOpenPopup }: IPopupTask) => {
     <RemoveScroll>
       <Overlay onClick={() => setOpenPopup(false)}>
         <Container onClick={(e) => e.stopPropagation()}>
-          <ButtonClose onClick={() => setOpenPopup(false)}>
+          <ButtonClose type="button" onClick={() => setOpenPopup(false)}>
             <Icons.close />
           </ButtonClose>
           <Title>Task details</Title>
-          <Fields>
+          <Fields onSubmit={(e) => e.preventDefault()}>
             <Input label="Task name" placeholder="Enter name" />
             <Textarea label="Description" placeholder="Enter description" />
             <IconChoice />
             <StatusChoice />
             <Buttons>
-              <Button variant="secondary">
+              <Button variant="secondary" type="submit">
                 <span>Delete</span>
                 <Icons.trash />
               </Button>
-              <Button variant="primary">
+              <Button variant="primary" type="submit">
                 <span>Save</span>
                 <Icons.check />
               </Button>
