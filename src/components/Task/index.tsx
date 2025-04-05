@@ -4,12 +4,17 @@ import { ITask } from "./types";
 import getBackgroundColor from "./utils/getBackgroundColor";
 import getIconStatus from "./utils/getIconStatus";
 import getStatusBackground from "./utils/getStatusBackground";
+import { usePopup } from "../../redux/hooks/usePopup";
+import { usePopupActions } from "../../redux/hooks/usePopupActions";
 
 const Task = ({ icon, title, status, description }: ITask) => {
   const Icon = getIconStatus(status || "");
 
+  const { openPopup } = usePopup();
+  const { togglePopup } = usePopupActions();
+
   return (
-    <TaskContainer $status={status}>
+    <TaskContainer $status={status} onClick={() => togglePopup(!openPopup)}>
       <TaskInformation>
         <TaskImageContainer>{icon}</TaskImageContainer>
         <div>
@@ -33,6 +38,7 @@ const TaskContainer = styled.li<{ $status?: string }>`
   justify-content: space-between;
   padding: ${rem(16)};
   border-radius: ${rem(16)};
+  cursor: pointer;
 `;
 
 const TaskInformation = styled.div`
