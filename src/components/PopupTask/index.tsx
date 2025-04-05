@@ -9,10 +9,13 @@ import Icons from "../Icons";
 import { RemoveScroll } from "react-remove-scroll";
 import { usePopup } from "../../redux/hooks/usePopup";
 import { usePopupActions } from "../../redux/hooks/usePopupActions";
+import { useEscapeKey } from "../../hooks/useEscapeKey";
 
 const PopupTask = () => {
   const { openPopup } = usePopup();
   const { togglePopup } = usePopupActions();
+
+  useEscapeKey(openPopup, () => togglePopup(false));
 
   if (!openPopup) return null;
 
