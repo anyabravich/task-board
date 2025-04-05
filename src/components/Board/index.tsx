@@ -3,11 +3,10 @@ import styled from "styled-components";
 import { rem } from "polished";
 import AddTask from "../AddTask";
 import PopupTask from "../PopupTask";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { usePopup } from "../../redux/hooks/usePopup";
 
 const Board = () => {
-  const openPopup = useSelector((state: RootState) => state.popup.openPopup);
+  const { openPopup } = usePopup();
 
   return (
     <BoardContainer>

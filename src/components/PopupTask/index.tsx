@@ -7,24 +7,20 @@ import StatusChoice from "../StatusChoice";
 import Button from "../Button";
 import Icons from "../Icons";
 import { RemoveScroll } from "react-remove-scroll";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { setOpenPopup } from "../../redux/slices/popupSlice";
+import { usePopup } from "../../redux/hooks/usePopup";
+import { usePopupActions } from "../../redux/hooks/usePopupActions";
 
 const PopupTask = () => {
-  const dispatch = useDispatch();
-  const openPopup = useSelector((state: RootState) => state.popup.openPopup);
+  const { openPopup } = usePopup();
+  const { togglePopup } = usePopupActions();
 
   if (!openPopup) return null;
 
   return (
     <RemoveScroll>
-      <Overlay onClick={() => dispatch(setOpenPopup(false))}>
+      <Overlay onClick={() => togglePopup(false)}>
         <Container onClick={(e) => e.stopPropagation()}>
-          <ButtonClose
-            type="button"
-            onClick={() => dispatch(setOpenPopup(false))}
-          >
+          <ButtonClose type="button" onClick={() => togglePopup(false)}>
             <Icons.close />
           </ButtonClose>
           <Title>Task details</Title>
