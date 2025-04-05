@@ -12,4 +12,7 @@ export const theme = {
     darkGray: "#97A3B6",
     blue: "#3662E3",
   },
+  breakpoints: {
+    mobile: "576px",
+  },
 };

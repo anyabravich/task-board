@@ -16,6 +16,9 @@ const PopupTask = ({ openPopup, setOpenPopup }: IPopupTask) => {
     <RemoveScroll>
       <Overlay onClick={() => setOpenPopup(false)}>
         <Container onClick={(e) => e.stopPropagation()}>
+          <ButtonClose onClick={() => setOpenPopup(false)}>
+            <Icons.close />
+          </ButtonClose>
           <Title>Task details</Title>
           <Fields>
             <Input label="Task name" placeholder="Enter name" />
@@ -49,9 +52,14 @@ const Overlay = styled.div`
   display: flex;
   justify-content: flex-end;
   background: ${rgba("#000000", 0.3)};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 0;
+  }
 `;
 
 const Container = styled.div`
+  position: relative;
   background: ${({ theme }) => theme.colors.white};
   width: 100%;
   height: 100%;
@@ -59,6 +67,37 @@ const Container = styled.div`
   max-width: ${rem(628)};
   border-radius: ${rem(10)};
   overflow-y: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    border-radius: 0;
+  }
+`;
+
+const ButtonClose = styled.button`
+  --size: ${rem(28)};
+
+  width: var(--size);
+  height: var(--size);
+
+  position: absolute;
+  top: ${rem(18)};
+  right: ${rem(18)};
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    --size: ${rem(44)};
+
+    width: var(--size);
+    height: var(--size);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 const Title = styled.p`

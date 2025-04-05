@@ -1,4 +1,5 @@
 import Check from "./Check";
+import Close from "./Close";
 import Completed from "./Completed";
 import Plus from "./Plus";
 import Progress from "./Progress";
@@ -13,6 +14,7 @@ const Icons: IIcons = {
   plus: Plus,
   check: Check,
   trash: Trash,
+  close: Close,
 };
 
 export default Icons;
