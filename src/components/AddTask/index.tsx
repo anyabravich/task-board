@@ -1,11 +1,16 @@
 import styled from "styled-components";
 import { rem } from "polished";
 import Icons from "../Icons";
-import { IAddTask } from "../../types";
+import { useDispatch, useSelector } from "react-redux";
+import { setOpenPopup } from "../../redux/slices/popupSlice";
+import { RootState } from "../../redux/store";
 
-const AddTask = ({ openPopup, setOpenPopup }: IAddTask) => {
+const AddTask = () => {
+  const dispatch = useDispatch();
+  const openPopup = useSelector((state: RootState) => state.popup.openPopup);
+
   return (
-    <AddTaskContainer onClick={() => setOpenPopup(!openPopup)}>
+    <AddTaskContainer onClick={() => dispatch(setOpenPopup(!openPopup))}>
       <AddTaskIcon>
         <Icons.plus />
       </AddTaskIcon>

@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { rem } from "polished";
 import AddTask from "../AddTask";
 import PopupTask from "../PopupTask";
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 const Board = () => {
-  const [openPopup, setOpenPopup] = useState(true);
+  const openPopup = useSelector((state: RootState) => state.popup.openPopup);
 
   return (
     <BoardContainer>
@@ -22,10 +23,8 @@ const Board = () => {
           description="Work on a devChallenges.io learn TypeScript."
         />
       </BoardList>
-      <AddTask openPopup={openPopup} setOpenPopup={setOpenPopup} />
-      {openPopup && (
-        <PopupTask openPopup={openPopup} setOpenPopup={setOpenPopup} />
-      )}
+      <AddTask />
+      {openPopup && <PopupTask />}
     </BoardContainer>
   );
 };
