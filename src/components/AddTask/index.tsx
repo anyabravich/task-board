@@ -9,16 +9,16 @@ const AddTask = () => {
   const { togglePopup } = usePopupActions();
 
   return (
-    <AddTaskContainer onClick={() => togglePopup(!openPopup)}>
-      <AddTaskIcon>
+    <Container onClick={() => togglePopup(!openPopup)}>
+      <Icon>
         <Icons.plus />
-      </AddTaskIcon>
-      <AddTaskText>Add new task</AddTaskText>
-    </AddTaskContainer>
+      </Icon>
+      <Text>Add new task</Text>
+    </Container>
   );
 };
 
-const AddTaskContainer = styled.button`
+const Container = styled.button`
   display: flex;
   align-items: center;
   width: 100%;
@@ -34,7 +34,7 @@ const AddTaskContainer = styled.button`
   background: ${({ theme }) => theme.colors.lightOrange};
 `;
 
-const AddTaskIcon = styled.div`
+const Icon = styled.div`
   --size: ${rem(48)};
 
   width: var(--size);
@@ -54,6 +54,8 @@ const AddTaskIcon = styled.div`
   }
 `;
 
-const AddTaskText = styled.p``;
+const Text = styled.p`
+  font-weight: 600;
+`;
 
 export default AddTask;

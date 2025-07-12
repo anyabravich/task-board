@@ -41,6 +41,13 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  a,
+  button {
+    color: inherit;
+    font-family: 'Outfit', 'Arial', sans-serif;
+    
+  }
+
   button {
     border: 0;
     outline: none;
