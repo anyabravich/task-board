@@ -1,17 +1,18 @@
 import styled from "styled-components";
+
 import { rem } from "polished";
 import { IEmojiIcon } from "./types";
 import { theme } from "../../utils/theme";
 
 const EmojiIcon = ({ icon, active, onClick }: IEmojiIcon) => {
   return (
-    <EmojiIconContainer $active={active} onClick={onClick}>
+    <Container $active={active} onClick={onClick}>
       {icon}
-    </EmojiIconContainer>
+    </Container>
   );
 };
 
-const EmojiIconContainer = styled.div<{ $active: boolean }>`
+const Container = styled.div<{ $active: boolean }>`
   --size: ${rem(44)};
 
   width: var(--size);

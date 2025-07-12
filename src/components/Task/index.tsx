@@ -14,67 +14,84 @@ const Task = ({ icon, title, status, description }: ITask) => {
   const { togglePopup } = usePopupActions();
 
   return (
-    <TaskContainer $status={status} onClick={() => togglePopup(!openPopup)}>
-      <TaskInformation>
-        <TaskImageContainer>{icon}</TaskImageContainer>
+    <Container $status={status} onClick={() => togglePopup(!openPopup)}>
+      <Information>
+        <ImageContainer>{icon}</ImageContainer>
+
         <div>
-          <TaskTitle>{title}</TaskTitle>
-          {description && <TaskDescription>{description}</TaskDescription>}
+          <Title>{title}</Title>
+          {description && <Description>{description}</Description>}
         </div>
-      </TaskInformation>
+      </Information>
       {status && (
-        <TaskStatus $status={status}>
+        <Status $status={status}>
           <Icon />
-        </TaskStatus>
+        </Status>
       )}
-    </TaskContainer>
+    </Container>
   );
 };
 
-const TaskContainer = styled.li<{ $status?: string }>`
+const Container = styled.div<{ $status?: string }>`
+  cursor: pointer;
+
   display: flex;
+  width: 100%;
   background: ${({ $status, theme }) =>
     getBackgroundColor($status || "", theme)};
   justify-content: space-between;
   padding: ${rem(16)};
   border-radius: ${rem(16)};
-  cursor: pointer;
 `;
 
-const TaskInformation = styled.div`
+const Information = styled.div`
   display: flex;
   gap: ${rem(20)};
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: ${rem(12)};
+  }
 `;
 
-const TaskImageContainer = styled.div`
+const ImageContainer = styled.span`
   --size: ${rem(44)};
 
   width: var(--size);
   height: var(--size);
 
-  background: ${({ theme }) => theme.colors.white};
+  flex-shrink: 0;
   border-radius: ${rem(8)};
+  background: ${({ theme }) => theme.colors.white};
 
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const TaskTitle = styled.p`
+const Title = styled.p`
   font-size: ${rem(20)};
   font-weight: 600;
   line-height: 1.25rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: ${rem(18)};
+  }
 `;
 
-const TaskDescription = styled.p`
+const Description = styled.p`
   font-size: ${rem(16)};
   font-weight: 400;
   line-height: 1.25rem;
   margin-top: ${rem(8)};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: ${rem(14)};
+    margin-top: ${rem(4)};
+  }
 `;
 
-const TaskStatus = styled.div<{ $status?: string }>`
+const Status = styled.div<{ $status?: string }>`
   --size: ${rem(44)};
 
   width: var(--size);

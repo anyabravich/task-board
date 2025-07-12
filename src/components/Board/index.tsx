@@ -4,54 +4,61 @@ import { rem } from "polished";
 import AddTask from "../AddTask";
 import PopupTask from "../PopupTask";
 import { usePopup } from "../../redux/hooks/usePopup";
+import { TASKS } from "./data";
 
 const Board = () => {
   const { openPopup } = usePopup();
 
   return (
-    <BoardContainer>
-      <BoardTitle>My Task Board</BoardTitle>
-      <BoardDescription>Tasks to keep organised</BoardDescription>
-      <BoardList>
-        <Task icon="⏰" title="Task in Progress" status="progress" />
-        <Task icon="🏋" title="Task Completed" status="completed" />
-        <Task icon="☕️" title="Task Won't Do" status="wontdo" />
-        <Task
-          icon="📚"
-          title="Task To Do"
-          description="Work on a devChallenges.io learn TypeScript."
-        />
-      </BoardList>
+    <Container>
+      <Title>My Task</Title>
+      <Description>Tasks to keep organised</Description>
+      <List>
+        {TASKS.map((task) => (
+          <li key={task.id}>
+            <Task {...task} />
+          </li>
+        ))}
+      </List>
       <AddTask />
       {openPopup && <PopupTask />}
-    </BoardContainer>
+    </Container>
   );
 };
 
-const BoardContainer = styled.div`
+const Container = styled.div`
   padding-block: ${rem(32)};
   max-width: ${rem(552)};
   margin: 0 auto;
 `;
 
-const BoardTitle = styled.h1`
+const Title = styled.h1`
   font-size: ${rem(40)};
   font-weight: 400;
   line-height: 2.5rem;
   margin-bottom: ${rem(34)};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-bottom: ${rem(20)};
+  }
 `;
 
-const BoardDescription = styled.p`
+const Description = styled.p`
   font-size: ${rem(16)};
   line-height: 1rem;
   margin-bottom: ${rem(28)};
 `;
 
-const BoardList = styled.ul`
+const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: ${rem(20)};
   margin-bottom: ${rem(22)};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: ${rem(10)};
+    margin-bottom: ${rem(10)};
+  }
 `;
 
 export default Board;

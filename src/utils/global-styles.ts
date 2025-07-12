@@ -40,4 +40,9 @@ export const GlobalStyle = createGlobalStyle`
   ol {
     list-style: none;
   }
+
+  button {
+    border: 0;
+    outline: none;
+  }
 `;
